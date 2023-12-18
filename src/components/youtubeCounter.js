@@ -1,22 +1,18 @@
 import React from "react"
+import { Axios } from "axios"
 import { useState } from "react"
 
 const YoutubeCounter = () => {
-  const [counter, setCounter] = useState("Todays count!")
+  const [data, setData] = useState(null)
 
   //Functions start here
   const fetchAPI = () => {
-    console.log("Button clicked")
-    fetch("https://pokeapi.co/api/v2/pokemon")
-      .then((res) => res.json())
-      .then((data) => console.log(data.results))
-      .catch((error) => console.error(error))
+    alert("Fetch API button pressed")
   }
-
   return (
     <div>
       <h1>Youtube Counter</h1>
-      <p>{counter}</p>
+      <p>{data}</p>
       <h4>The following section is made to practice fetching APIs again</h4>
       <button onClick={fetchAPI}>Fetch APIs</button>
     </div>
