@@ -3,38 +3,40 @@ import axios from "axios"
 import { useState } from "react"
 
 const YoutubeCounter = () => {
-  const [data, setData] = useState([])
+  const [data, setData] = useState(
+    "https://images.dog.ceo/breeds/terrier-welsh/lucy.jpg"
+  )
 
   //functions starts here
-  //   useEffect(() => {
-  //     const getData = () => {
-  //       axios
-  //         .get("https://pokeapi.co/api/v2/pokemon/")
+  // useEffect(() => {
+  //   const getData = () => {
+  //     axios
+  //       .get("https://dog.ceo/api/breeds/image/random/")
 
-  //         .then((res) => console.log(res))
-  //         .catch((err) => console.log(err.message))
-  //     }
-  //     getData()
-  //   }, [])
+  //       .then((res) => console.log(res))
+  //       .catch((err) => console.log(err.message))
+  //   }
+  //   getData()
+  // }, [])
   //Functions start here
-  //   React.useEffect(() => {
-  //     //https://pokeapi.co/api/v2/pokemon/ditto
-  fetch("https://pokeapi.co/api/v2/pokemon/")
-    .then((res) => res.json())
-    .then((res) => console.log(res.results))
-    .then((res) => {
-      const data = res.results
-      console.log(data)
-    })
-    .catch((err) => console.error(err))
-  //   }, [])
+  const fetchData = () => {
+    //https://pokeapi.co/api/v2/pokemon/ditto
+    fetch("https://dog.ceo/api/breeds/image/random")
+      .then((res) => res.json())
+      .then((res) => setData(res.message))
+
+      .catch((err) => console.error(err))
+  }
 
   return (
     <div>
       <h1>Youtube Counter</h1>
       {/* <p>{data}</p> */}
-      <h4>The following section is made to practice fetching APIs again</h4>
-      <button>Fetch APIs</button>
+      <h4>Press the button to display random animals</h4>
+      <button onClick={fetchData}>Fetch APIs</button>
+      <div>
+        <img src={data} alt="Random_dog" />
+      </div>
     </div>
   )
 }
