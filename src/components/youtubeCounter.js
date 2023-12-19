@@ -30,7 +30,7 @@ const YoutubeCounter = () => {
     <div>
       <h1>Youtube Counter</h1>
       {/* <p>{data}</p> */}
-      <h5>Press the button to display Subscribers</h5>
+      <h5>Press the button to display Subscribers and total views</h5>
       <button onClick={fetchData}>Fetch API</button>
       <div>
         <h3>Subscribers</h3>
